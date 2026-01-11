@@ -106,7 +106,8 @@ export default function BrowsePage () {
   />
   <link href="output.css" rel="stylesheet" />
   <title>Shayna Cosmetics</title>
-  <main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-white pb-[141px]">
+  
+  <main className="mx-auto flex  flex-col gap-5 bg-white pb-[141px]">
     <section id="Info">
       <div className="mt-5 flex items-center justify-between px-5">
         <div className="language flex h-[32px] items-center gap-[10px]">
@@ -243,8 +244,8 @@ export default function BrowsePage () {
                 <h3 className="mb-[2px] text-center text-sm font-semibold leading-[21px]">
                   {category.name}
                 </h3>
-                <p className="text-center text-sm leading-[21px] text-cosmetics-grey">
-                  {category.cosmetic_count}items
+                <p className="text-center text-sm leading-[21px] text-grey">
+                  {category.cosmetics_count} tems
                 </p>
               </div>
             </div>
@@ -365,7 +366,7 @@ export default function BrowsePage () {
       </div>
     </section>
     <nav className="fixed bottom-0 left-0 right-0 z-30 mx-auto w-full">
-      <div className="mx-auto max-w-[640px]">
+      <div className="mx-auto">
         <div className="h-[89px] bg-white px-[30px] shadow-[0px_-4px_30px_0px_#1107260D]">
           <ul className="flex justify-between">
             <li className="flex items-center">
@@ -436,6 +437,7 @@ export default function BrowsePage () {
       </div>
     </nav>
   </main>
+
 </>
 
     );

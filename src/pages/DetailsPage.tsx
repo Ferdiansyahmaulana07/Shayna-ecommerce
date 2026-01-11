@@ -90,7 +90,7 @@ export default function DetailsPage () {
 
 
 return (
-<main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-[#F6F6F8]">
+<main className="mx-auto flex min-h-screen flex-col gap-5 bg-[#F6F6F8]">
   <section id="NavTop">
     <div className="relative mt-5 px-5">
       <div className="flex w-full items-center justify-between rounded-3xl bg-white px-3 py-3">
@@ -393,7 +393,7 @@ return (
       </section>
     </div>
     <nav className="fixed bottom-0 left-0 right-0 z-30">
-      <div className="relative mx-auto flex max-w-[640px] items-center gap-[55px] bg-white p-5">
+      <div className="relative mx-auto flex items-center gap-[55px] bg-white p-5">
         <div className="flex flex-col gap-1 text-start">
           <strong className="whitespace-nowrap text-xl font-bold leading-[30px]">
             {formatCurrency(cosmetic.price)}

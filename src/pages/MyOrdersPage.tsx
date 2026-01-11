@@ -59,7 +59,7 @@ export default function MyOrdersPage() {
     
 
     return (
-<main className="relative mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-[#F6F6F8] pb-[162px]">
+<main className="relative mx-auto flex min-h-screen  flex-col gap-5 bg-[#F6F6F8] pb-[162px]">
   <div id="Background" className="absolute left-0 right-0 top-0">
     <img
       src="/assets/images/backgorunds/cosmetic-equipment.png"
@@ -150,7 +150,7 @@ export default function MyOrdersPage() {
     </form>
   </div>
   <nav className="fixed bottom-0 left-0 right-0 z-30 mx-auto w-full">
-    <div className="mx-auto max-w-[640px]">
+    <div className="mx-auto ">
       <div className="h-[89px] bg-white px-[30px] shadow-[0px_-4px_30px_0px_#1107260D]">
         <ul className="flex justify-between">
           <li className="flex items-center">

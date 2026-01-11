@@ -47,7 +47,7 @@ export default function CategoryPage() {
   const BASE_URL = import.meta.env.VITE_REACT_API_STORAGE_URL;
 
     return (
-<main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-[#F6F6F8] pb-[102px]">
+<main className="mx-auto flex min-h-screen  flex-col gap-5 bg-[#F6F6F8] pb-[102px]">
     <section id="NavTop" className="mt-5 px-5">
         <div className="flex w-full flex-col gap-5 rounded-3xl bg-white px-3 pb-5 pt-3">
         <div className="flex items-center justify-between">
@@ -92,7 +92,7 @@ export default function CategoryPage() {
                     {category.name}
                 </h2>
                 <p className="text-sm leading-[21px] text-cosmetics-grey">
-                {category.cosmetic_count} Products
+                {category.cosmetics_count} Products
                 </p>
             </div>
             </div>

@@ -130,7 +130,7 @@ export default function MyCartPage() {
   const BASE_URL = import.meta.env.VITE_REACT_API_STORAGE_URL;
 
     return (
-        <main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-[#F6F6F8]">
+        <main className="mx-auto flex min-h-screen flex-col gap-5 bg-[#F6F6F8]">
   <section id="NavTop">
     <div className="px-5">
       <div className="relative mt-5 w-full rounded-3xl bg-white py-3">

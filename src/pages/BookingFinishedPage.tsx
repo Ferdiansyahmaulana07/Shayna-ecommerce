@@ -7,7 +7,7 @@ export default function BookingFinishedPage() {
     const email = queryParams.get("email");
 
     return (
-        <main className="relative mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-[#F6F6F8] pb-[48px]">
+        <main className="relative mx-auto flex min-h-screen flex-col gap-5 bg-[#F6F6F8] pb-[48px]">
   <div id="Background" className="absolute left-0 right-0 top-0">
     <img
       src="/assets/images/backgorunds/purple.png"

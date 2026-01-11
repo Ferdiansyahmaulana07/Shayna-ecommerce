@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { BookingDetails } from "../types/type";
 import { useEffect } from "react";
+import AccordionSection from "../components/AccordionSection";
 
 interface LocationState {
     bookingDetails: BookingDetails | null;
@@ -34,7 +35,7 @@ export default function MyBookingDetails() {
     const BASE_URL = import.meta.env.VITE_REACT_API_STORAGE_URL;
 
     return (
-<main className="mx-auto flex flex-col min-h-screen max-w-[640px] bg-[#F6F6F8]">
+<main className="mx-auto flex flex-col min-h-screen bg-[#F6F6F8]">
   <section id="NavTop">
     <div className="relative mt-5 px-5">
       <div className="flex w-full items-center justify-between rounded-3xl bg-white px-3 py-3">
@@ -98,36 +99,17 @@ export default function MyBookingDetails() {
   <div className="flex flex-col gap-5 pb-[50px] mt-5">
     <div id="Pending" className="flex flex-col gap-5">
       <section id="ProductPurchased" className="px-5">
+        <AccordionSection
+            title="Product Purchased"
+            subTitle="Anda membeli produk berikut"
+            iconSrc="/assets/images/icons/guarantee.svg"
+          >
         <div className="flex flex-col gap-5 rounded-3xl bg-white px-5 py-[30px]">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-[10px]">
-              <img
-                src="/assets/images/icons/guarantee.svg"
-                alt="icon"
-                className="size-[38px] shrink-0"
-              />
-              <div className="flex flex-col gap-1">
-                <h2 className="font-semibold">Product Purchased</h2>
-                <p className="text-sm leading-[21px] text-cosmetics-grey">
-                  Anda membeli produk berikut
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              data-expand="ProductPurchasedPendingJ"
-              className="shrink-0"
-            >
-              <img
-                src="/assets/images/icons/bottom.svg"
-                alt="icon"
-                className="size-6 shrink-0"
-              />
-            </button>
+            
           </div>
           <div id="ProductPurchasedPendingJ" className="flex flex-col gap-5">
             <div className="box h-[1px] w-full" />
-            
             {bookingDetails.transaction_details.map((detail) => (
             <div key={detail.id} className="flex h-[143px] items-center justify-center rounded-3xl bg-cosmetics-greylight p-px transition-all duration-300 hover:bg-cosmetics-gradient-purple-pink hover:p-[2px]">
               <div className="flex h-full w-full flex-col justify-center gap-[12px] rounded-[23px] bg-white px-4 transition-all duration-300 hover:rounded-[22px]">
@@ -161,137 +143,132 @@ export default function MyBookingDetails() {
               </div>
             </div>
             ))}
+          </div>
+        </div>
+        </AccordionSection>
+      </section>
+      
+     <section id="PaymentDetails" className="px-5">
+  <AccordionSection
+    title="Payment Details"
+    subTitle="Details yang telah dibayar"
+    iconSrc="/assets/images/icons/information.svg"
+  >
+    <div className="flex flex-col gap-5">
+      <div className="box h-[1px] w-full" />
 
-          </div>
-        </div>
-      </section>
-      <section id="PaymentDetails" className="px-5">
-        <div className="flex flex-col gap-5 rounded-3xl bg-white px-5 py-[30px]">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-[10px]">
-              <img
-                src="/assets/images/icons/information.svg"
-                alt="icon"
-                className="size-[38px] shrink-0"
-              />
-              <div className="flex flex-col gap-1">
-                <h2 className="font-semibold">Payment Details</h2>
-                <p className="text-sm leading-[21px] text-cosmetics-grey">
-                  Details yang telah dibayar
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              className="shrink-0"
-              data-expand="PaymentDetailsPendingJ"
-            >
-              <img
-                src="/assets/images/icons/bottom.svg"
-                alt="icon"
-                className="size-6 shrink-0"
-              />
-            </button>
-          </div>
-          <div id="PaymentDetailsPendingJ" className="flex flex-col gap-5">
-            <div className="box h-[1px] w-full" />
-            {bookingDetails.is_paid ? (<div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Status</p>
-              </div>
-              <span className="rounded-full bg-[#099954] px-[10px] py-1 text-xs font-semibold leading-[18px] text-white">
-                SUCCESFUL
-              </span>
-            </div>
-            ) : (
-              <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Status</p>
-              </div>
-              <span className="rounded-full bg-[#FF9D2A] px-[10px] py-1 text-xs font-semibold leading-[18px]">
-                PENDING
-              </span>
-            </div>
-            )}
-            
-            
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Booking ID</p>
-              </div>
-              <strong className="font-semibold">{bookingDetails.booking_trx_id}</strong>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Total Quantity</p>
-              </div>
-              <strong className="font-semibold">{bookingDetails.quantity} Items</strong>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Sub Total</p>
-              </div>
-              <strong className="font-semibold">{formatCurrency(bookingDetails.sub_total_amount)}</strong>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Tax 11%</p>
-              </div>
-              <strong className="font-semibold">
-                {formatCurrency(bookingDetails.total_tax_amount)}
-              </strong>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[6px]">
-                <img
-                  src="/assets/images/icons/list.svg"
-                  alt="icon"
-                  className="size-5 shrink-0"
-                />
-                <p>Grand Total</p>
-              </div>
-              <strong className="text-[22px] font-bold leading-[33px] text-cosmetics-pink">
-                {formatCurrency(bookingDetails.total_amount)}
-              </strong>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* STATUS */}
       {bookingDetails.is_paid ? (
-        <section
-  id="ProgressBarPending"
-  className="relative flex items-center gap-5 px-5"
->
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-[6px]">
+            <img
+              src="/assets/images/icons/list.svg"
+              alt="icon"
+              className="size-5 shrink-0"
+            />
+            <p>Status</p>
+          </div>
+          <span className="rounded-full bg-[#099954] px-[10px] py-1 text-xs font-semibold leading-[18px] text-white">
+            SUCCESSFUL
+          </span>
+        </div>
+      ) : (
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-[6px]">
+            <img
+              src="/assets/images/icons/list.svg"
+              alt="icon"
+              className="size-5 shrink-0"
+            />
+            <p>Status</p>
+          </div>
+          <span className="rounded-full bg-[#FF9D2A] px-[10px] py-1 text-xs font-semibold leading-[18px]">
+            PENDING
+          </span>
+        </div>
+      )}
+
+      {/* BOOKING ID */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-[6px]">
+          <img
+            src="/assets/images/icons/list.svg"
+            alt="icon"
+            className="size-5 shrink-0"
+          />
+          <p>Booking ID</p>
+        </div>
+        <strong className="font-semibold">
+          {bookingDetails.booking_trx_id}
+        </strong>
+      </div>
+
+      {/* TOTAL QTY */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-[6px]">
+          <img
+            src="/assets/images/icons/list.svg"
+            alt="icon"
+            className="size-5 shrink-0"
+          />
+          <p>Total Quantity</p>
+        </div>
+        <strong className="font-semibold">
+          {bookingDetails.quantity} Items
+        </strong>
+      </div>
+
+      {/* SUBTOTAL */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-[6px]">
+          <img
+            src="/assets/images/icons/list.svg"
+            alt="icon"
+            className="size-5 shrink-0"
+          />
+          <p>Sub Total</p>
+        </div>
+        <strong className="font-semibold">
+          {formatCurrency(bookingDetails.sub_total_amount)}
+        </strong>
+      </div>
+
+      {/* TAX */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-[6px]">
+          <img
+            src="/assets/images/icons/list.svg"
+            alt="icon"
+            className="size-5 shrink-0"
+          />
+          <p>Tax 11%</p>
+        </div>
+        <strong className="font-semibold">
+          {formatCurrency(bookingDetails.total_tax_amount)}
+        </strong>
+      </div>
+
+      {/* GRAND TOTAL */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-[6px]">
+          <img
+            src="/assets/images/icons/list.svg"
+            alt="icon"
+            className="size-5 shrink-0"
+          />
+          <p>Grand Total</p>
+        </div>
+        <strong className="text-[22px] font-bold leading-[33px] text-cosmetics-pink">
+          {formatCurrency(bookingDetails.total_amount)}
+        </strong>
+      </div>
+    </div>
+  </AccordionSection>
+</section>
+
+
+      {bookingDetails.is_paid ? (
+        <section id="ProgressBarPending" className="relative flex items-center gap-5 px-5">
   {/* Progress Bar */}
   <div className="progress-bar flex flex-col justify-center">
     {/* Step 1 - Active */}
@@ -360,10 +337,7 @@ export default function MyBookingDetails() {
     </div>
   </div>
 </section>
-
-      
-       ) : (
-        
+       ) : ( 
       <section
         id="ProgressBar"
         className="relative flex items-center gap-5 px-5"
@@ -424,6 +398,7 @@ export default function MyBookingDetails() {
         </div>
       </section>
        ) }
+       
        <section id="PersonalInformations" className="px-5">
         <div className="flex flex-col gap-5 rounded-3xl bg-white px-5 py-[30px]">
           <div className="flex items-center justify-between">

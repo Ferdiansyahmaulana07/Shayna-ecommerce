@@ -37,7 +37,7 @@ export interface Category {
     name:string,
     slug:string,
     photo:string,
-    cosmetic_count: number,
+    cosmetics_count: number,
     cosmetics: Cosmetic[],
     popular_cosmetics: Cosmetic[],
 }

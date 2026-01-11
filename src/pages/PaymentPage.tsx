@@ -178,7 +178,7 @@ export default function PaymentPage() {
         }
         
     return (
-<main className="mx-auto flex min-h-screen max-w-[640px] flex-col gap-5 bg-[#F6F6F8] pb-[30px]">
+<main className="mx-auto flex min-h-screen flex-col gap-5 bg-[#F6F6F8] pb-[30px]">
   <section id="NavTop">
     <div className="px-5">
       <div className="mt-5 flex w-full flex-col gap-5 rounded-3xl bg-white pb-[44px] pt-3">
